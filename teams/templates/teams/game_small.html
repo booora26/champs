@@ -42,29 +42,6 @@
     </table>
 </div>
 
-    <h3>Round {{games.round}} </h3>
-<br>
-
-
-    <table class="table">
-        <tr>
-            <th>Round</th>
-            <th>Home team</th>
-            <th style="min-width:100px">Result</th>
-            <th>Guest team</th>
-        </tr>
-        {% for game in game_list %}
-            <tr>
-                <td><a href="/games/{{game.round}}" style="text-decoration: none; color:orange">
-                    R{{game.round}}</a></td>
-                <td><a href="/team/{{game.home_team.slug}}">{{game.home_team}}</a></td>
-                <td style="min-width:30px"> {{game.home_result}} : {{game.away_result}}</td>
-                <td><a href="/team/{{game.away_team.slug}}"> {{game.away_team}}</a></td>
-            </tr>
-        {% endfor %}
-    </table>
-
-
 
 
 {% endblock %}
