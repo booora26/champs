@@ -1,0 +1,71 @@
+{% extends 'teams/base.html' %}
+{% block title %}Game list {{games.round}}{% endblock %}
+{% block content %}
+<<<<<<< HEAD
+{% for game in game_list %}
+  {% if forloop.first %}
+<h3 style="padding-left: 5px;"><strong>Round {{game.round}}</strong> </h3>
+  {%endif%}
+{% endfor %}
+
+<br>
+
+<div class="form-group">
+  <label for="sel1">Choose round:</label>
+  <select class="form-control" id="sel1" name="selR" onchange="location = this.options[this.selectedIndex].value;">
+    {% for game in game_round %}
+    <option value="/games/{{ forloop.counter }}"> Round {{ forloop.counter }} </option>
+      {% endfor %}
+  </select>
+</div>
+
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+
+            <th class="hidden-xs" style="text-align: center; font-size: 100%;">Home team</th>
+            <th></th>
+            <th style="text-align: center; font-size: 100%;">Result</th>
+            <th></th>
+            <th class="hidden-xs" style="text-align: center; font-size: 100%;">Guest team</th>
+        </tr>
+        {% for game in game_list %}
+            <tr style="height: 50px;vertical-align: middle; text-align: center; font-size: 120%; ">
+
+                <td class="hidden-xs"><a href="/team/{{game.home_team.slug}}">{{game.home_team}}</a></td>
+                <td><img src="{{game.home_team.logo}}" style="max-height:50px;"></td>
+                <td style="min-width:70px; font-size: 150%;"> <strong>{{game.home_result}} : {{game.away_result}}</strong></td>
+                <td><img src="{{game.away_team.logo}}" style="max-height:50px;"></td>
+                <td class="hidden-xs"><a href="/team/{{game.away_team.slug}}"> {{game.away_team}}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+=======
+    <h3>Round {{games.round}} </h3>
+<br>
+
+
+    <table class="table">
+        <tr>
+            <th>Round</th>
+            <th>Home team</th>
+            <th style="min-width:100px">Result</th>
+            <th>Guest team</th>
+        </tr>
+        {% for game in game_list %}
+            <tr>
+                <td><a href="/games/{{game.round}}" style="text-decoration: none; color:orange">
+                    R{{game.round}}</a></td>
+                <td><a href="/team/{{game.home_team.slug}}">{{game.home_team}}</a></td>
+                <td style="min-width:30px"> {{game.home_result}} : {{game.away_result}}</td>
+                <td><a href="/team/{{game.away_team.slug}}"> {{game.away_team}}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+>>>>>>> ac2249bbb4fada9f19a7fc9aed2aaea697828d09
+
+
+
+{% endblock %}
+

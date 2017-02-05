@@ -1,0 +1,27 @@
+{% extends 'teams/base.html' %}
+{% block title %}Search results{% endblock %}
+{% block content %}
+<br>
+<h3>You searched for: <strong><span style="color:orange"> {{ query }}</span></strong></h3>
+<br>
+{% if players %}
+    <h4>Found {{ players|length }} player{{ players|pluralize }}.</h4>
+    <ul style="list-style-type: none">
+        {% for player in players %}
+        <li><a href="/player/{{player.slug}}">{{ player.first_name }} {{ player.last_name }}</a>&nbsp;{{player.club}}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h4>No player matched your search criteria.</h4>
+{% endif %}
+{% if teams %}
+    <h4>Found {{ teams|length }} club{{ teams|pluralize }}.</h4>
+    <ul style="list-style-type: none">
+        {% for team in teams %}
+        <li><a href="/team/{{team.slug}}">{{ team.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <h4>No club matched your search criteria.</h4>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'teams/base.html' %}
+{% block title %}Team list{% endblock %}
+{% block content %}
+
+<br>
+
+        <div class="row" >
+            {% for team in team_list %}
+            <div class="col-md-3 col-xs-6" style="margin:auto; height:150px">
+             <div class="row" style="margin-bottom:10px">
+                 <div class="col-xs-12">
+<<<<<<< HEAD
+                  <a href="/team/{{ team.slug }}"> <img src="{{team.logo}}" style="margin:auto; display:block; max-height: 100px;" class="img-responsive" ></a>
+=======
+                  <a href="/team/{{ team.slug }}"> <img src="{{team.logo}}" style="margin:auto; display:block; max-height: 120px;" class="img-responsive" ></a>
+>>>>>>> ac2249bbb4fada9f19a7fc9aed2aaea697828d09
+                 </div>
+             </div>
+             <div class="row" style="margin-bottom:20px; display:block;">
+                 <div class="col-xs-12" style="text-align:center;">
+                     <a href="/team/{{ team.slug }}">{{ team.name }}</a>
+                 </div>
+            </div>
+                </div>
+
+            {% endfor %}
+         </div>
+
+{% endblock %}
+

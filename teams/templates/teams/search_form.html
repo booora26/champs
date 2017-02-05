@@ -1,0 +1,12 @@
+{% extends 'teams/base.html' %}
+{% block title %}Search results{% endblock %}
+{% block content %}
+<br>
+{% if errors %}
+        <ul style="list-style-type: none">
+            {% for error in errors %}
+            <li><h3><span style="color:red">{{ error }}</span></h3></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
