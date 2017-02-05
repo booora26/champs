@@ -2,16 +2,14 @@
 {% block title %} {{player.first_name}} {{player.last_name}} {% endblock %}
 
 {% block content %}
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 <div style="padding-left:10px;">
     <img src="{{ player.club.logo}}" style="max-height: 100px; margin-left: 10px;" >
-=======
+
     <img src="{{ player.club.logo}}" style="max-height: 100px;" >
->>>>>>> ac2249bbb4fada9f19a7fc9aed2aaea697828d09
-=======
+
     <img src="{{ player.club.logo}}" style="max-height: 100px;" >
->>>>>>> c6062dea30b9485e36418238648b0b342809b43c
+
     <div class="page-header">
     <h1>{{ player.first_name }} {{ player.last_name }}  <img src="{{player.flag}}"></h1>
     </div>
@@ -35,14 +33,8 @@
   <h4>DOB: {{player.born}}</h4>
   <h4>Nationality: {{player.nationality}}</h4>
   <h4>Club: <a href="/team/{{player.club.slug}}"> {{player.club}}</a></h4>
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 </div>
-=======
 
->>>>>>> ac2249bbb4fada9f19a7fc9aed2aaea697828d09
-=======
-
->>>>>>> c6062dea30b9485e36418238648b0b342809b43c
 {% endblock %}
 
