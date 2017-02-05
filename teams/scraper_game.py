@@ -9,10 +9,14 @@ import requests
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 for i in range(20, 21):
 =======
 for i in range(0, 20):
 >>>>>>> ac2249bbb4fada9f19a7fc9aed2aaea697828d09
+=======
+for i in range(20, 21):
+>>>>>>> c6062dea30b9485e36418238648b0b342809b43c
     i+=1
     url = 'http://www.euroleague.net/main/results?gamenumber={}'.format(i)
     source = requests.get(url)

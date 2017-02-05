@@ -4,12 +4,17 @@
 
 {% block content %}
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div style="padding-left: 5px;">
     <img src="{{ team.logo}}" style="max-height: 120px; margin-left: 10px;" >
 =======
 
     <img src="{{ team.logo}}" style="max-height: 200px;" >
 >>>>>>> ac2249bbb4fada9f19a7fc9aed2aaea697828d09
+=======
+
+    <img src="{{ team.logo}}" style="max-height: 200px;" >
+>>>>>>> c6062dea30b9485e36418238648b0b342809b43c
     <div class="page-header">
         <h1>{{ team.name }} <img src="{{team.flag}}"> </h1>
     </div>
@@ -22,7 +27,11 @@
     <input type="hidden" />
     <button type="submit" class="btn btn-primary btn-sm">Add player</button>
 </form>
+<<<<<<< HEAD
 <form action="{% url 'teams:teams-update' team.slug %}" method="get" style="display:inline">
+=======
+<form action="{% url 'teams:teams-update' team.slug %}"  style="display:inline">
+>>>>>>> c6062dea30b9485e36418238648b0b342809b43c
     {% csrf_token %}
     <input type="hidden" value="{{ team.slug }}"/>
     <button type="submit" class="btn btn-warning btn-sm">Update</button>
@@ -33,10 +42,14 @@
     <button type="submit" class="btn btn-danger btn-sm">Delete</button>
 </form>
 <<<<<<< HEAD
+<<<<<<< HEAD
 </div>
 =======
 
 >>>>>>> ac2249bbb4fada9f19a7fc9aed2aaea697828d09
+=======
+
+>>>>>>> c6062dea30b9485e36418238648b0b342809b43c
 <br>
 <br>
 

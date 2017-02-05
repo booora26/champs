@@ -19,18 +19,24 @@ urlpatterns = [
     url(r'^team/$', TeamsList.as_view(), name='teams-list'),
     url(r'^team/[+]add/$', TeamCreate.as_view(), name='teams-add'), #add teams
 <<<<<<< HEAD
+<<<<<<< HEAD
     url(r'^json/team/(?P<slug>[\w-]+)$', TeamDetJSONList.as_view(), name='JSONteam'),
     url(r'^json/team/$', TeamJSONList.as_view()),
     url(r'^team/(?P<slug>[\w-]+)/edit/$', TeamUpdate.as_view(), name='teams-update'),
     url(r'^json/player/$', PlayerJSONList.as_view()),
     url(r'^team/(?P<slug>[\w-]+)/$', Teams.as_view(), name='team'),
 =======
+=======
+>>>>>>> c6062dea30b9485e36418238648b0b342809b43c
     url(r'^team/json/$', TeamJSONList.as_view()),
     url(r'^team/json/(?P<slug>[\w-]+)$', TeamDetJSONList.as_view(), name='TeamJSON'),
     url(r'^team/(?P<slug>[\w-]+)/edit/$', TeamUpdate.as_view(), name='teams-update'),
     url(r'^player/json/$', PlayerJSONList.as_view()),
     url(r'^team/(?P<slug>[\w-]+)/$', Teams.as_view(), name='team-detail'),
+<<<<<<< HEAD
 >>>>>>> ac2249bbb4fada9f19a7fc9aed2aaea697828d09
+=======
+>>>>>>> c6062dea30b9485e36418238648b0b342809b43c
     url(r'^team/(?P<slug>[\w-]+)/delete/$', TeamDelete.as_view(), name='teams-delete'),
     url(r'^player/$', PlayerList.as_view(), name='players-list'),
     url(r'^player/(?P<slug>[\w-]+)$', Players.as_view(), name='player'),
@@ -41,16 +47,24 @@ urlpatterns = [
     url(r'^team/feed/$', TeamListFeed()),
     url(r'^player/feed/$', PlayerListFeed()),
 <<<<<<< HEAD
+<<<<<<< HEAD
     url(r'^json/player/(?P<slug>[\w-]+)$', PlayerDetJSONList.as_view()),
 =======
     url(r'^player/json/(?P<slug>[\w-]+)$', PlayerDetJSONList.as_view()),
 >>>>>>> ac2249bbb4fada9f19a7fc9aed2aaea697828d09
+=======
+    url(r'^player/json/(?P<slug>[\w-]+)$', PlayerDetJSONList.as_view()),
+>>>>>>> c6062dea30b9485e36418238648b0b342809b43c
     url(r'^games/$', GameList.as_view(), name='game-list'),
     url(r'^games/(?P<slug>[0-9]+)/$', GameRound.as_view(), name='game-round'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 urlpatterns = format_suffix_patterns(urlpatterns)
 =======
 urlpatterns = format_suffix_patterns(urlpatterns)
 >>>>>>> ac2249bbb4fada9f19a7fc9aed2aaea697828d09
+=======
+urlpatterns = format_suffix_patterns(urlpatterns)
+>>>>>>> c6062dea30b9485e36418238648b0b342809b43c

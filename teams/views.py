@@ -12,9 +12,12 @@ from rest_framework.permissions import AllowAny, IsAdminUser, IsAuthenticated, I
 from rest_framework.filters import SearchFilter, OrderingFilter
 from django.core.urlresolvers import reverse_lazy
 <<<<<<< HEAD
+<<<<<<< HEAD
 from rest_framework.renderers import JSONRenderer
 =======
 >>>>>>> ac2249bbb4fada9f19a7fc9aed2aaea697828d09
+=======
+>>>>>>> c6062dea30b9485e36418238648b0b342809b43c
 
 
 
@@ -100,9 +103,12 @@ class TeamDetJSONList(RetrieveAPIView):
     serializer_class = TeamSerializer
     lookup_field = 'slug'
 <<<<<<< HEAD
+<<<<<<< HEAD
     renderer_classes = (JSONRenderer,)
 =======
 >>>>>>> ac2249bbb4fada9f19a7fc9aed2aaea697828d09
+=======
+>>>>>>> c6062dea30b9485e36418238648b0b342809b43c
 
 
 class Players(DetailView):
@@ -162,9 +168,12 @@ class GameRound(ListView):
         # Add in a QuerySet of all the books
         context['game_list'] = Game.objects.filter(round = self.kwargs['slug'])
 <<<<<<< HEAD
+<<<<<<< HEAD
         context['game_round'] = Game.objects.values_list('round').distinct()
 =======
 >>>>>>> ac2249bbb4fada9f19a7fc9aed2aaea697828d09
+=======
+>>>>>>> c6062dea30b9485e36418238648b0b342809b43c
         return context
 
 
