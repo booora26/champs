@@ -1,0 +1,62 @@
+{% extends 'teams/base.html' %}
+{% block title %}Game list{% endblock %}
+{% block content %}
+    <h3>Game list</h3>
+<br>
+
+<div class="form-group">
+  <label for="sel1">Choose round:</label>
+  <select class="form-control" id="sel1" name="selR" onchange="location = this.options[this.selectedIndex].value;">
+    {% for game in game_round %}
+    <option value="/games/{{ forloop.counter }}"> Round {{ forloop.counter }} </option>
+      {% endfor %}
+  </select>
+</div>
+
+
+
+    <table class="table">
+        <tr>
+            <th>Round</th>
+            <th>Home team</th>
+            <th style="min-width:70px">Result</th>
+            <th>Guest team</th>
+        </tr>
+        {% for game in game_list %}
+            <tr>
+                <td><a href="/games/{{game.round}}" style="text-decoration: none; color:orange">
+                    R{{game.round}}</a></td>
+                <td><a href="/team/{{game.home_team.slug}}">{{game.home_team}}</a></td>
+                <td style="min-width:70px"> {{game.home_result}} : {{game.away_result}}</td>
+                <td><a href="/team/{{game.away_team.slug}}"> {{game.away_team}}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+
+
+<div class="text-align: center">
+{% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+</div>
+
+{% endblock %}
+

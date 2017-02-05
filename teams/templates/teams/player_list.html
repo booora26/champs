@@ -1,0 +1,53 @@
+{% extends 'teams/base.html' %}
+{% block title %}Player list{% endblock %}
+{% block content %}
+    <h3>Players list</h3>
+<br>
+    <h4 style="color:orange">Number of players: {{ player_list|length }}</h4>
+<br>
+<div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th style="color:orange">Player</th>
+            <th style="color:orange">Country</th>
+            <th class="hidden-xs" style="color:orange">Height (cm)</th>
+            <th style="color:orange">Team</th>
+
+        </tr>
+        {% for player in player_list %}
+            <tr>
+                <td> <a href="/player/{{player.slug }}">{{player.first_name}} {{player.last_name}}</a></td>
+                <td> <img src="{{player.flag}}"></td>
+                <td class="hidden-xs"> {{player.height}}</td>
+                <td style="vertical-align: middle;"> <img src="{{ player.club.logo }}" style="max-height:32px; max-width:32px;"> {{player.club}}  </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+
+<div class="text-align: center">
+{% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+</div>
+
+{% endblock %}
+

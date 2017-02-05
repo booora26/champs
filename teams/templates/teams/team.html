@@ -1,0 +1,90 @@
+{% extends 'teams/base.html' %}
+
+{% block title %}{{team.name}}{% endblock %}
+
+{% block content %}
+
+    <img src="{{ team.logo}}" style="max-height: 200px;" >
+    <div class="page-header">
+        <h1>{{ team.name }} <img src="{{team.flag}}"> </h1>
+    </div>
+    <h2></h2>
+   <h4>Arena: {{team.arena}}</h4>
+   <h4>Website: <a href="{{team.website}}">{{team.website}}</a></h4>
+<br>
+<form action="{% url 'teams:player-add' %}" method="post" style="display:inline">
+    {% csrf_token %}
+    <input type="hidden" />
+    <button type="submit" class="btn btn-primary btn-sm">Add player</button>
+</form>
+<form action="{% url 'teams:teams-update' team.slug %}"  style="display:inline">
+    {% csrf_token %}
+    <input type="hidden" value="{{ team.slug }}"/>
+    <button type="submit" class="btn btn-warning btn-sm">Update</button>
+</form>
+<form action="{% url 'teams:teams-delete' team.slug %}" method="post" style="display:inline">
+    {% csrf_token %}
+    <input type="hidden" value="{{ team.slug }}"/>
+    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+</form>
+
+<br>
+<br>
+
+<ul class="nav nav-tabs nav-justified">
+  <li class="active"><a data-toggle="tab" href="#games">Games <span class="badge">{{ game_list|length }}</span></a></li>
+  <li><a data-toggle="tab" href="#players">Players <span class="badge">{{ player_list|length }}</span></a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="games" class="tab-pane fade in active">
+<table class="table">
+        <tr>
+            <th class="hidden-xs">Round</th>
+            <th>Home team</th>
+            <th style="min-width:100px">Result</th>
+            <th>Guest team</th>
+        </tr>
+        {% for game in game_list %}
+            <tr>
+                <td  class="hidden-xs"><a href="/games/{{game.round}}" style="text-decoration: none; color:orange">
+                    Round {{game.round}}</a></td>
+                <td><a href="/team/{{game.home_team.slug}}">{{game.home_team}}</a></td>
+                <td style="min-width:100px"> {{game.home_result}} : {{game.away_result}}</td>
+                <td><a href="/team/{{game.away_team.slug}}"> {{game.away_team}}</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+  </div>
+  <div id="players" class="tab-pane fade">
+<table class="table">
+        <tr>
+            <th>Player</th>
+            <th>Country</th>
+            <th class="hidden-xs">No</th>
+            <th>Height</th>
+            <th>Position</th>
+            <th class="hidden-xs">DOB</th>
+
+        </tr>
+        {% for player in player_list %}
+            <tr>
+                <td> <a href="/player/{{ player.slug }}">{{player.first_name}} {{player.last_name}}</a></td>
+                <td> <img src="{{player.flag}}"></td>
+                <td class="hidden-xs"> {{player.number}}</td>
+                <td> {{player.height}}</td>
+                <td> {{player.position}}</td>
+                <td class="hidden-xs"> {{player.born}}</td>
+
+            </tr>
+        {% endfor %}
+    </table>
+  </div>
+</div>
+
+
+
+
+
+{% endblock %}
+
