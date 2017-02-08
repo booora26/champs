@@ -3,4 +3,4 @@ manage.py
 champsleague/
 *.pyc
 static/
-.DS_Store
+**/.DS_Store

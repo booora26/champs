@@ -8,15 +8,9 @@ from bs4 import BeautifulSoup
 import requests
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 for i in range(20, 21):
-=======
-for i in range(0, 20):
->>>>>>> ac2249bbb4fada9f19a7fc9aed2aaea697828d09
-=======
-for i in range(20, 21):
->>>>>>> c6062dea30b9485e36418238648b0b342809b43c
+
     i+=1
     url = 'http://www.euroleague.net/main/results?gamenumber={}'.format(i)
     source = requests.get(url)
@@ -33,7 +27,6 @@ for i in range(20, 21):
         h_res = int(game[0].text.split(' ')[-1])
         a_team = str(game[1].span.string)
         a_res = int(game[1].text.split(' ')[-1])
-
         p = Game(round = match_no, home_team = Team.objects.get(name__icontains=h_team), home_result = h_res, away_team = Team.objects.get(name__icontains=a_team), away_result = a_res)
         p.save()
         print(match_no, h_team, h_res, a_team, a_res)
